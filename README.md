@@ -9,6 +9,17 @@ DersDostu is a high-performance, offline-first educational tool designed to revi
 - **Automated Archiving**: Screen recording and PDF generation for easy sharing.
 - **Privacy-First**: 100% offline, data never leaves the local network.
 
+## Installation & Setup
+
+### Windows
+For detailed Windows installation and setup instructions, please read [WINDOWS_SETUP.md](WINDOWS_SETUP.md).
+
+### General Requirements
+- **Go** (v1.20+)
+- **Node.js** (v18+)
+- **Wails** (v2)
+- **FFmpeg** (Required for screen recording)
+
 ## Tech Stack
 - **Backend**: Go (Wails v2)
 - **Frontend**: React, Tailwind CSS, Framer Motion

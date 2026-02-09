@@ -104,20 +104,14 @@ func (r *RecorderService) StartRecording(filename string) error {
 	time.Sleep(500 * time.Millisecond)
 
 	// Check if process is alive by sending signal 0 (Linux/Unix only)
-	// On Windows this might not work perfectly but os.FindProcess works.
-	// Since r.cmd.Process is set, we can check basic status?
-	// Actually, if it crashed, Signal(0) should return error?
-	// Using os.FindProcess on existing pid?
-
-	// If process exited, Signal(0) usually returns error "os: process already finished" or similar.
-	if err := r.cmd.Process.Signal(syscall.Signal(0)); err != nil {
-		// Process likely dead.
-		// Now we can call Wait() to get the error safely because it's dead?
-		// Or just assume it failed.
-		r.cmd.Wait() // Clean up resources
-		r.cmd = nil
-		r.IsRecording = false
-		return fmt.Errorf("ffmpeg exited immediately (check logs)")
+	if runtime.GOOS != "windows" {
+		if err := r.cmd.Process.Signal(syscall.Signal(0)); err != nil {
+			// Process likely dead.
+			r.cmd.Wait() // Clean up resources
+			r.cmd = nil
+			r.IsRecording = false
+			return fmt.Errorf("ffmpeg exited immediately (check logs)")
+		}
 	}
 
 	r.IsRecording = true
