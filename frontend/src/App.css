@@ -1,0 +1,6 @@
+/* Cleared legacy styles */
+#app {
+    /* No conflicting styles */
+    text-align: left;
+    /* Ensure default */
+}

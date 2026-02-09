@@ -1,0 +1,43 @@
+# Wails
+build/bin/
+frontend/dist/
+frontend/node_modules/
+.wails/
+
+# Go
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+DersDostu
+
+# Vosk Models (Large binaries)
+models/
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+dersdostu.db
+
+# OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.bak
+*~
+
+# Logs
+*.log
+ffmpeg_log.txt
+
+# Media
+*.mp4
+*.pdf
+public/*.mp4
+public/*.pdf
